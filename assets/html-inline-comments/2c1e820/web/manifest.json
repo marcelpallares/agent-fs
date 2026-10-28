@@ -1,0 +1,516 @@
+{
+  "feature": "agent-fs: inline comments in the HTML preview (REV-916)",
+  "before": {
+    "sourceSha": "ef779eb",
+    "checkout": "detached worktree of upstream main"
+  },
+  "after": {
+    "sourceSha": "2c1e820",
+    "branch": "feat/html-inline-comments"
+  },
+  "captureType": "browser, mocked API",
+  "browser": "chromium_headless_shell-1248 via Playwright 1.63.0, production build served by vite preview",
+  "fixture": "Synthetic 'Quarterly report' HTML page; API intercepted with page.route (same approach as live/tests/html-comments.spec.ts); After serves the page through the server's real injectHtmlCommentOverlay",
+  "captures": [
+    {
+      "state": "S01-preview",
+      "title": "HTML preview loaded, no comments",
+      "variant": "before",
+      "file": "S01-preview-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:08:38.396Z"
+    },
+    {
+      "state": "S01-preview",
+      "title": "HTML preview loaded, no comments",
+      "variant": "after",
+      "file": "S01-preview-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:20:38.013Z"
+    },
+    {
+      "state": "S02-selected",
+      "title": "Text selected in the page",
+      "variant": "before",
+      "file": "S02-selected-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "Scroll to the 'Revenue grew' paragraph",
+        "Triple-click it"
+      ],
+      "notes": "Selection works but no Comment action exists",
+      "capturedAt": "2026-10-28T00:08:40.016Z"
+    },
+    {
+      "state": "S02-selected",
+      "title": "Text selected in the page",
+      "variant": "after",
+      "file": "S02-selected-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "Scroll to the 'Revenue grew' paragraph",
+        "Triple-click it"
+      ],
+      "notes": "Floating Comment button appears under the selection",
+      "capturedAt": "2026-10-28T00:20:39.728Z"
+    },
+    {
+      "state": "S03-form",
+      "title": "Comment form open with text typed",
+      "variant": "after",
+      "file": "S03-form-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "Triple-click the 'Revenue grew' paragraph",
+        "Click Comment",
+        "Type 'Tighten this sentence'"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:20:41.433Z"
+    },
+    {
+      "state": "S04-saved",
+      "title": "Comment saved: highlight in page and card in the panel",
+      "variant": "after",
+      "file": "S04-saved-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "Triple-click the paragraph",
+        "Click Comment",
+        "Type 'Tighten this sentence'",
+        "Click Send",
+        "Clear the selection (programmatic removeAllRanges in the frame)"
+      ],
+      "notes": "comment-add sent with lineStart 8 and the quote",
+      "capturedAt": "2026-10-28T00:20:43.929Z"
+    },
+    {
+      "state": "S16-block-click",
+      "title": "Click a paragraph (no selection): Comment button for the whole block",
+      "variant": "after",
+      "file": "S16-block-click-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "Single-click p >> nth=0 in the page"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:21:03.415Z"
+    },
+    {
+      "state": "S16b-block-heading",
+      "title": "Click the heading: Comment button for the heading",
+      "variant": "after",
+      "file": "S16b-block-heading-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "Single-click h1 in the page"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:21:04.847Z"
+    },
+    {
+      "state": "S16c-block-row",
+      "title": "Click a table row: Comment button for the row",
+      "variant": "after",
+      "file": "S16c-block-row-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "Single-click #row in the page"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:21:06.271Z"
+    },
+    {
+      "state": "S16d-block-saved",
+      "title": "Three block comments saved: heading, intro and table row highlighted",
+      "variant": "after",
+      "file": "S16d-block-saved-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "For the intro paragraph, heading and table row: single-click, Comment, type, Send"
+      ],
+      "notes": "comment-add lines: 5, 4, 6; quotes: \"Intro paragraph about the quarter, written for the whole team.\" | \"Quarterly report\" | \"Active users\\n1,200\\n1,450\"",
+      "capturedAt": "2026-10-28T00:21:09.210Z"
+    },
+    {
+      "state": "S17-block-textless",
+      "title": "Click a canvas chart (no text): no Comment button",
+      "variant": "after",
+      "file": "S17-block-textless-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html",
+        "Scroll to the chart",
+        "Click the canvas"
+      ],
+      "notes": "Textless elements are out of scope for v1 (decision 2)",
+      "capturedAt": "2026-10-28T00:21:10.811Z"
+    },
+    {
+      "state": "S05-existing",
+      "title": "Another user's comment: panel card and page passage",
+      "variant": "before",
+      "file": "S05-existing-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html with Ada's comment on the 'Revenue grew' quote",
+        "Scroll the page to the quoted paragraph"
+      ],
+      "notes": "Card shows the quote; nothing marks the passage in the page",
+      "capturedAt": "2026-10-28T00:08:41.449Z"
+    },
+    {
+      "state": "S05-existing",
+      "title": "Another user's comment: panel card and page passage",
+      "variant": "after",
+      "file": "S05-existing-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html with Ada's comment on the 'Revenue grew' quote",
+        "Scroll the page to the quoted paragraph"
+      ],
+      "notes": "Passage highlighted in the page",
+      "capturedAt": "2026-10-28T00:20:45.239Z"
+    },
+    {
+      "state": "S06-reveal",
+      "title": "Click the comment card's quote",
+      "variant": "before",
+      "file": "S06-reveal-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html with Ada's comment (page at top)",
+        "Click the quote in the comment card"
+      ],
+      "notes": "Page scrollY after click: 0 (page did not move)",
+      "capturedAt": "2026-10-28T00:08:43.647Z"
+    },
+    {
+      "state": "S06-reveal",
+      "title": "Click the comment card's quote",
+      "variant": "after",
+      "file": "S06-reveal-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html with Ada's comment (page at top)",
+        "Click the quote in the comment card"
+      ],
+      "notes": "Page scrollY after click: 657 (scrolled to and flashed the passage)",
+      "capturedAt": "2026-10-28T00:20:46.798Z"
+    },
+    {
+      "state": "S07-hover",
+      "title": "Hover the highlight: active highlight and marked card",
+      "variant": "after",
+      "file": "S07-hover-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html with Ada's comment",
+        "Hover the highlighted passage in the page"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:20:48.235Z"
+    },
+    {
+      "state": "S08-resolved",
+      "title": "Comment resolved, resolved section expanded",
+      "variant": "before",
+      "file": "S08-resolved-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html with Ada's comment",
+        "Hover the card, click Resolve",
+        "Expand '1 resolved'",
+        "Scroll page to the passage"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:08:45.690Z"
+    },
+    {
+      "state": "S08-resolved",
+      "title": "Comment resolved, resolved section expanded",
+      "variant": "after",
+      "file": "S08-resolved-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html with Ada's comment",
+        "Hover the card, click Resolve",
+        "Expand '1 resolved'",
+        "Scroll page to the passage"
+      ],
+      "notes": "Highlight removed from the page once resolved",
+      "capturedAt": "2026-10-28T00:20:50.214Z"
+    },
+    {
+      "state": "S09-moved",
+      "title": "File edited (v2): quoted paragraph moved below 'Closing words'",
+      "variant": "before",
+      "file": "S09-moved-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html at version 2 with Ada's v1 comment",
+        "Scroll page to the moved paragraph"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:08:46.956Z"
+    },
+    {
+      "state": "S09-moved",
+      "title": "File edited (v2): quoted paragraph moved below 'Closing words'",
+      "variant": "after",
+      "file": "S09-moved-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html at version 2 with Ada's v1 comment",
+        "Scroll page to the moved paragraph"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:20:51.583Z"
+    },
+    {
+      "state": "S10-lost",
+      "title": "File edited (v2): quoted text deleted, then card clicked",
+      "variant": "before",
+      "file": "S10-lost-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html at version 2 where the quoted text was replaced",
+        "Click the quote in the card"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:08:48.476Z"
+    },
+    {
+      "state": "S10-lost",
+      "title": "File edited (v2): quoted text deleted, then card clicked",
+      "variant": "after",
+      "file": "S10-lost-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Open /file/~/org/drive/reports/page.html at version 2 where the quoted text was replaced",
+        "Click the quote in the card"
+      ],
+      "notes": "Card shows 'anchor lost'; clicking it shows a toast instead of scrolling",
+      "capturedAt": "2026-10-28T00:20:53.086Z"
+    },
+    {
+      "state": "S11-mobile-selected",
+      "title": "Narrow viewport: text selected",
+      "variant": "before",
+      "file": "S11-mobile-selected-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "390x844",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Viewport 390x844 (mouse input, no touch emulation)",
+        "Open /file/~/org/drive/reports/page.html",
+        "Triple-click the paragraph"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:08:50.008Z"
+    },
+    {
+      "state": "S11-mobile-selected",
+      "title": "Narrow viewport: text selected",
+      "variant": "after",
+      "file": "S11-mobile-selected-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "390x844",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Viewport 390x844 (mouse input, no touch emulation)",
+        "Open /file/~/org/drive/reports/page.html",
+        "Triple-click the paragraph"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:20:54.629Z"
+    },
+    {
+      "state": "S12-mobile-form",
+      "title": "Narrow viewport: comment form",
+      "variant": "after",
+      "file": "S12-mobile-form-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "390x844",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Viewport 390x844",
+        "Open /file/~/org/drive/reports/page.html",
+        "Triple-click the paragraph",
+        "Click Comment",
+        "Type text"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:20:56.231Z"
+    },
+    {
+      "state": "S13-mobile-saved",
+      "title": "Narrow viewport: comment saved, highlight in page",
+      "variant": "after",
+      "file": "S13-mobile-saved-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "390x844",
+      "theme": "light",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Viewport 390x844",
+        "Open /file/~/org/drive/reports/page.html",
+        "Select, Comment, type, Send",
+        "Clear the selection (programmatic)"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:20:58.750Z"
+    },
+    {
+      "state": "S14-dark-selected",
+      "title": "Dark theme: existing comment plus a new selection",
+      "variant": "before",
+      "file": "S14-dark-selected-before.png",
+      "sourceSha": "ef779eb",
+      "viewport": "1280x800",
+      "theme": "dark",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Theme dark (agent-fs-theme=dark)",
+        "Open /file/~/org/drive/reports/page.html with Ada's comment",
+        "Triple-click the 'Revenue grew' paragraph"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:08:51.842Z"
+    },
+    {
+      "state": "S14-dark-selected",
+      "title": "Dark theme: existing comment plus a new selection",
+      "variant": "after",
+      "file": "S14-dark-selected-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "dark",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Theme dark (agent-fs-theme=dark)",
+        "Open /file/~/org/drive/reports/page.html with Ada's comment",
+        "Triple-click the 'Revenue grew' paragraph"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:21:00.348Z"
+    },
+    {
+      "state": "S15-dark-form",
+      "title": "Dark theme: comment form",
+      "variant": "after",
+      "file": "S15-dark-form-after.png",
+      "sourceSha": "2c1e820",
+      "viewport": "1280x800",
+      "theme": "dark",
+      "captureType": "browser, mocked API",
+      "steps": [
+        "Theme dark",
+        "Open /file/~/org/drive/reports/page.html",
+        "Triple-click the paragraph",
+        "Click Comment",
+        "Type text"
+      ],
+      "notes": "",
+      "capturedAt": "2026-10-28T00:21:02.002Z"
+    }
+  ],
+  "missingBefore": {
+    "S03-form": "feature absent on base",
+    "S04-saved": "feature absent on base",
+    "S16-block-click": "feature absent on base",
+    "S16b-block-heading": "feature absent on base",
+    "S16c-block-row": "feature absent on base",
+    "S16d-block-saved": "feature absent on base",
+    "S17-block-textless": "feature absent on base",
+    "S07-hover": "feature absent on base",
+    "S12-mobile-form": "feature absent on base",
+    "S13-mobile-saved": "feature absent on base",
+    "S15-dark-form": "feature absent on base"
+  }
+}
