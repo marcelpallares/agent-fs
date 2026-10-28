@@ -1,0 +1,9 @@
+{
+  "feature": "usable comment form on phones",
+  "before": {"sourceSha": "ef779eb", "branch": "main"},
+  "after": {"sourceSha": "03824f8", "branch": "fix/mobile-comment-form",
+    "note": "ios-longpress-after and android-handles-after were captured at 85bd397; the *-keyboard-after, ios-after-send-after, ipad and limit captures at e6f976d. 03824f8 only removes a placement rule that never fired on these devices, so the captured behaviour is unchanged."},
+  "captureType": "simulator/emulator, real browser, local agent-fs server with synthetic data",
+  "devices": {"ios": "iPhone 18 Pro simulator, iOS 27.0, Safari, software keyboard", "android": "Pixel 10 emulator, Android 36, Chrome", "ipad": "iPad Pro 11-inch (M5) simulator, iPadOS 27.0, Safari"},
+  "theme": "light"
+}
